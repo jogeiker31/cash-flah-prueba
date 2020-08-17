@@ -1,0 +1,61 @@
+<div class="registro" fxLayout="row">
+  <div fxFlex.lt-md="0%" fxFlex.gt-sm="60%">
+  </div>
+  <div fxFlex.lt-md="100%"  fxFlex.gt-sm="40%"  fxLayout="column" class="registro-content">
+    <div fxFlex.gt-sm="20%"  class="text-center registro-logo" >
+      <!-- <img alt="homepage" src="./assets/images/logo.png" width="150px" height="150px">  -->
+    </div>
+
+    <div fxFlex.gt-sm="50%"  >
+    
+      <div class="text-center title">
+        <h2>Formulario</h2>
+      
+      </div>
+       
+
+      <div class="form-cliente">
+        <form [formGroup]="formulario" fxLayout="column">
+          <div fxLayout.gt-sm="row" fxLayout.lt-sm="column" >
+            
+            <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-sm="100%" class="input">
+              <input matInput placeholder="Nombre" formControlName="nombre">
+              <mat-error *ngIf="formulario.controls.nombre.errors?.required">El nombre es requerido</mat-error>
+              <mat-error *ngIf="formulario.controls.nombre.errors?.pattern">El nombre no puede contener numeros o caracteres especiales</mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex.gt-sm="50%" fxFlex.lt-sm="100%" class="input">
+              <input matInput placeholder="Apellido" formControlName="apellido">
+              <mat-error *ngIf="formulario.controls.apellido.errors?.required">El apellido es requerido</mat-error>
+              <mat-error *ngIf="formulario.controls.apellido.errors?.pattern">El nombre no puede contener numeros o caracteres especiales</mat-error>
+            </mat-form-field>
+          
+          </div>
+
+          <div fxLayout.gt-sm="row" fxLayout.lt-sm="column" >
+           
+            <mat-form-field fxFlex.gt-sm="100%" fxFlex.lt-sm="100%" class="input">
+              <input matInput placeholder="Correo electrónico" formControlName="email">
+              <mat-error *ngIf="formulario.controls.email.errors?.required">El correo es requerido</mat-error>
+              <mat-error *ngIf="formulario.controls.email.errors?.pattern">El correo no es valido</mat-error>
+            </mat-form-field>
+          </div>
+         
+       
+          <mat-form-field fxFlex="100%" class="input">
+            <textarea matInput placeholder="Mensaje" formControlName="mensaje"></textarea>
+
+          </mat-form-field>
+          <button   mat-raised-button color="primary"  class="register-button mt-4" [disabled]="formulario.invalid"  (click)="register()">Enviar</button>
+        </form>
+  
+      </div>
+    
+      
+
+ 
+    </div>
+  
+  </div>
+
+
+</div>
